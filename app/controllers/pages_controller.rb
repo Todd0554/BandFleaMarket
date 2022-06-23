@@ -1,6 +1,5 @@
-class PagesController < ApplicationController
-  def index
-  end
+class PagesController < ProductsController
+
   def myshop
 
   end
