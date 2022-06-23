@@ -52,7 +52,6 @@ class ProductsController < ApplicationController
   # DELETE /products/1 or /products/1.json
   def destroy
     @product.destroy
-
     respond_to do |format|
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
@@ -63,7 +62,6 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-
     end
 
     def set_form_vars
