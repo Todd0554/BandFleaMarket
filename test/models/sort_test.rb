@@ -1,6 +1,6 @@
 require "test_helper"
 
-class TypeTest < ActiveSupport::TestCase
+class SortTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
