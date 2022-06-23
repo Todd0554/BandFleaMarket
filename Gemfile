@@ -22,9 +22,18 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
+
+
 # add gem 
 gem "font-awesome-rails"
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
+
+gem "mini_magick" 
+# for mac use "brew install imagemagick"
+# for windows use
+# "sudo apt-get install libmagickwand-dev"
+# "sudo apt-get install imagemagick --fix-missing"
+
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
