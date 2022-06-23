@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require normalize
+ *= require skeleton
  *= require font-awesome
  */
  @import "bootstrap/scss/bootstrap";

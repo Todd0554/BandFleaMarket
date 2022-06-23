@@ -33,14 +33,17 @@
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.select :category_id, @categories.map {|c| [c.category., c.id]} %>
+    <%= form.select :category_id, @categories.map {|c| [c.category, c.id]} %>
   </div>
 
   <div class="field">
     <%= form.label :sort_id %>
     <%= form.select :sort_id, @sorts.map {|c| [c.sort, c.id]} %>
   </div>
-
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

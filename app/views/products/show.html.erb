@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= image_tag(@product.picture)  %>
 <p>
   <strong>Title:</strong>
   <%= @product.title %>
@@ -28,6 +28,10 @@
 <p>
   <strong>Category:</strong>
   <%= @product.category_id %>
+</p>
+<p>
+  <strong>Category:</strong>
+  <%= @product.sort_id %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
