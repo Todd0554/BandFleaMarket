@@ -1,2 +1,40 @@
-<h1>myshop</h1>
 
+<h1>myshop</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Sold</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Sort</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<% Product.where(user_id: current_user.id).each do |product| %>
+  <tbody>
+      <tr>
+        <td><%= image_tag(product.picture, height: "150") %></td>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= product.user.username %></td>
+        <% if product.sold == false %>
+          <td>Not yet</td>
+        <% else %>
+          <td>Sold</td>
+        <% end %>
+        <td><%= product.price %></td>
+        <td><%= product.category.category %></td>
+        <td><%= product.sort.sort %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Delete', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    
+  </tbody>
+
+<% end %>
+</table>

@@ -20,8 +20,8 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag(product.picture, height: "150") %></td>
-        <td><%= product.title %></td>
+        <td><%= link_to image_tag(product.picture, height: "150"), product %></td>
+        <td><%= link_to product.title, product %></td>
         <td><%= product.description %></td>
         <td><%= product.user.username %></td>
         <% if product.sold == false %>
@@ -32,9 +32,8 @@
         <td><%= product.price %></td>
         <td><%= product.category.category %></td>
         <td><%= product.sort.sort %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+
       </tr>
     <% end %>
   </tbody>
