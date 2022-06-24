@@ -29,11 +29,7 @@ gem "font-awesome-rails"
 gem 'skeleton-rails', :git => 'https://github.com/helios-technologies/skeleton-rails'
 
 gem "mini_magick" 
-# for mac use "brew install imagemagick"
-# for windows use
-# "sudo apt-get install libmagickwand-dev"
-# "sudo apt-get install imagemagick --fix-missing"
-
+gem "aws-sdk-s3", require: false
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
