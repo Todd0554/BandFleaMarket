@@ -70,9 +70,9 @@ class ProductsController < ApplicationController
     end
     # authorize control
     def authorize_user
-      if current_user.id != @listing.user_id
+      if current_user.id != @product.user_id
         flash[:alert] = "You can't do that!"
-        redirect_to listings_path
+        redirect_to products_path
       end
     end
     # Only allow a list of trusted parameters through.
