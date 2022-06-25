@@ -4,8 +4,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_form_vars
   # GET /products or /products.json
+
+  NUMBER_PRODUCTS_PER_PAGE = 5
+
   def index
     @products = Product.all
+    @page = params.fetch(:page, 0).to_i
+    @products_per_page = Product.offset(@page * NUMBER_PRODUCTS_PER_PAGE).limit(NUMBER_PRODUCTS_PER_PAGE)
   end
 
   # GET /products/1 or /products/1.json

@@ -6,4 +6,5 @@ class PagesController < ProductsController
   def mycart
     
   end
+  
 end
