@@ -24,12 +24,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @product.category = @product.sort.category
   end
 
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.category = @product.sort.category
     respond_to do |format|
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
