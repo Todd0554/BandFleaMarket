@@ -39,6 +39,10 @@
 </table>
 
 <br>
-
-<%= link_to 'New Product', new_product_path %>
+<% if @page > 0 %>
+<%= link_to "Last Page", products_path(page: @page - 1) %>
+<% end %>
+<% if @page < @products.length / 5  %>
+<%= link_to "Next Page", products_path(page: @page + 1) %>
+<% end %>
 
