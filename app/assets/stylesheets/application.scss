@@ -17,3 +17,28 @@
  *= require font-awesome
  */
  @import "bootstrap/scss/bootstrap";
+
+section{
+    margin:0px 50px;
+}
+
+body{
+    height: 1500px;
+    background-image: url("pexels-bryan-catota-3756766.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover; 
+    text-align: center;
+}
+
+ul{
+    text-align: center;
+    list-style: none;
+}
+li{
+    display: inline-block;
+}
+
+a{
+    text-align: center;
+}

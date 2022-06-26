@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   before_action :set_product, only: %i[ show edit update destroy ]
   before_action :set_page, only: %i[ index show_by_sort]
   before_action :authorize_user, only: [:edit, :update, :destroy]
@@ -24,13 +25,12 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-<<<<<<< HEAD
     @product.category = @product.sort.category
   end
-=======
->>>>>>> dropdown-bars-link-with-correct-pages
 
-  end
+
+
+
   # GET /guitar
 
   def show_by_sort
@@ -105,4 +105,5 @@ class ProductsController < ApplicationController
     def product_params
       params.require(:product).permit(:title, :description, :user_id, :sold, :price, :category_id, :picture, :sort_id)
     end
+
 end

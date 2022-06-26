@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>BandFleaMarket</title>
-
-
+  <title>BandFleaMarket</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,18 +13,13 @@
 
 <body>
 <%= render 'shared/navbar' %>
-<section style="margin:0px 50px">
+<section>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
 </section>
-    
-
-
-
-
 </body>
 </html>
 

@@ -9,57 +9,63 @@
             <%= fa_icon "headphones" %>
             <%= "BandFleaMarket" %>
             <% end %>
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="justify-content:center">
+       
 
             <% if user_signed_in? %>
-
-
-            <li class="nav-item">
+            
             <%= link_to myshop_path, class: "nav-link" do %>
             <%= fa_icon "user" %>
             <%= "Myshop" %>
             <% end %>
-            </li>
+            
 
-            <li class="nav-item">
+           
             <%= link_to mycart_path, class: "nav-link" do %>
             <%= fa_icon "shopping-cart" %>
             <%= "Mycart" %>
             <% end %>
-            </li>
+          
 
-            <li class="nav-item">
+          
+            <%= link_to mycart_path, class: "nav-link" do %>
+            <%= fa_icon "list" %>
+            <%= "Myorder" %>
+            <% end %>
+            
+
+           
             <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
             <%= fa_icon "sign-out" %>
             <%= "Sign Out" %>
             <% end %>
-            </li>
+            
 
             <% else %>
 
 
 
-            <li class="nav-item">
+            
             <%= link_to new_user_session_path, class: "nav-link" do %>
             <%= fa_icon "user" %>
             <%= "Sign In" %>
             <% end %>
-            </li>
+           
 
-            <li class="nav-item">
+          
             <%= link_to new_user_registration_path, class: "nav-link" do %>
             <%= fa_icon "user" %>
             <%= "Sign Up" %>
             <% end %>
-            </li>
+          
 
             <% end %>
-        </ul>
+        
     </div>
 </nav>
 
