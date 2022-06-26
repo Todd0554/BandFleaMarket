@@ -1,0 +1,47 @@
+<h1>this is show by sort</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Picture</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>User</th>
+      <th>Sold</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Sort</th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+<% @find_products_per_page.each do |product| %>
+
+      <tr>
+        <td><%= link_to image_tag(product.picture, height: "150"), product %></td>
+        <td><%= link_to product.title, product %></td>
+        <td><%= product.description %></td>
+        <td><%= product.user.username %></td>
+        <% if product.sold == false %>
+          <td>Not yet</td>
+        <% else %>
+          <td>Sold</td>
+        <% end %>
+        <td><%= product.price %></td>
+        <td><%= product.category.category %></td>
+        <td><%= product.sort.sort %></td>
+        
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<% if @page > 0 %>
+<%= link_to "Last Page", products_path(page: @page - 1) %>
+<% end %>
+<% if @page < @find_products_by_sort.length / 5  %>
+<%= link_to "Next Page", products_path(page: @page + 1) %>
+<% end %>
