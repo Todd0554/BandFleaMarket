@@ -64,17 +64,14 @@
 </nav>
 
 <div style="display:inline-table">
-
-
-
         <div style="display:table-cell">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Guitar&Bass
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-        <%= link_to "Guitar", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "Bass", new_user_session_path, class:"dropdown-item" %>
+        <%= link_to "Guitar", sort_path(1), class:"dropdown-item" %>
+        <%= link_to "Bass", sort_path(2), class:"dropdown-item" %>
 
 
         </div>
@@ -85,11 +82,18 @@
           Pedals
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <%= link_to "Overdrive/Distortion/Fuzz", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "Reverb/delay", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "Pitch/Octave", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "Tuner/EQ/Compressor", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "Phaser/Flanger", new_user_session_path, class:"dropdown-item" %>
+        <%= link_to "Overdrive", sort_path(3), class:"dropdown-item" %>
+        <%= link_to "Distortion", sort_path(4), class:"dropdown-item" %>
+        <%= link_to "Fuzz", sort_path(5), class:"dropdown-item" %>
+        <%= link_to "Reverb", sort_path(6), class:"dropdown-item" %>
+        <%= link_to "delay", sort_path(7), class:"dropdown-item" %>
+        <%= link_to "Pitch", sort_path(8), class:"dropdown-item" %>
+        <%= link_to "Octave", sort_path(9), class:"dropdown-item" %>
+        <%= link_to "Tuner", sort_path(10), class:"dropdown-item" %>
+        <%= link_to "EQ", sort_path(11), class:"dropdown-item" %>
+        <%= link_to "Compressor", sort_path(12), class:"dropdown-item" %>
+        <%= link_to "Flanger", sort_path(13), class:"dropdown-item" %>
+        <%= link_to "Phaser", sort_path(14), class:"dropdown-item" %>
 
         </div>
       </div>
@@ -99,15 +103,15 @@
           Amplifier
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <%= link_to "Acoustic", new_user_session_path, class:"dropdown-item" %>
-        <%= link_to "High Gain", new_user_session_path, class:"dropdown-item" %>
+        <%= link_to "Acoustic", sort_path(15), class:"dropdown-item" %>
+        <%= link_to "High Gain", sort_path(16), class:"dropdown-item" %>
 
         </div>
         </div>
 
       <div style="display:table-cell">
-        <%= link_to "Others", new_user_session_path, class:"nav-link" %>
-        </div>
+        <%= link_to "Others", sort_path(17), class:"nav-link" %>
+      </div>
         
 
 </div>

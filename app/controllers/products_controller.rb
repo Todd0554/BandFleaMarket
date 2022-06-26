@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_page, only: %i[ index show_by_sort]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_form_vars
@@ -9,7 +10,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @page = params.fetch(:page, 0).to_i
     @products_per_page = Product.offset(@page * NUMBER_PRODUCTS_PER_PAGE).limit(NUMBER_PRODUCTS_PER_PAGE)
   end
 
@@ -24,12 +24,22 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
-  end
 
+  end
+  # GET /guitar
+
+  def show_by_sort
+    @find_sort = @sorts.find do |s|
+      s[:id] == params[:id].to_i
+    end
+    @find_products_by_sort = Product.where(sort_id:@find_sort.id)
+    @find_products_per_page = @find_products_by_sort.offset(@page * NUMBER_PRODUCTS_PER_PAGE).limit(NUMBER_PRODUCTS_PER_PAGE)
+  end
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
     @product.user = current_user
+    @product.category = @product.sort.category
     respond_to do |format|
       if @product.save
         format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
@@ -43,6 +53,7 @@ class ProductsController < ApplicationController
 
   # PATCH/PUT /products/1 or /products/1.json
   def update
+    @product.category = @product.sort.category
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to product_url(@product), notice: "Product was successfully updated." }
@@ -67,6 +78,11 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+    
+    def set_page    
+      @page = params.fetch(:page, 0).to_i
+
     end
 
     def set_form_vars
