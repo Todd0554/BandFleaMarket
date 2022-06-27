@@ -3,7 +3,7 @@
        
        
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
     <%= link_to root_path, class: "nav-link" do %>
             <%= fa_icon "headphones" %>
@@ -21,21 +21,21 @@
             
             <%= link_to myshop_path, class: "nav-link" do %>
             <%= fa_icon "user" %>
-            <%= "Myshop" %>
+            <%= "MyShop" %>
             <% end %>
             
 
            
             <%= link_to mycart_path, class: "nav-link" do %>
             <%= fa_icon "shopping-cart" %>
-            <%= "Mycart" %>
+            <%= "MyCart" %>
             <% end %>
           
 
           
-            <%= link_to mycart_path, class: "nav-link" do %>
+            <%= link_to my_order_path, class: "nav-link" do %>
             <%= fa_icon "list" %>
-            <%= "Myorder" %>
+            <%= "MyOrder" %>
             <% end %>
             
 
@@ -69,7 +69,7 @@
     </div>
 </nav>
 
-<div style="display:inline-table">
+<div class="dropdown">
         <div style="display:table-cell">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Guitar&Bass

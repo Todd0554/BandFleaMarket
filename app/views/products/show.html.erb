@@ -33,6 +33,11 @@
   <strong>Category:</strong>
   <%= @product.sort_id %>
 </p>
+<% if @product.sold == false %>
+          <%= button_to 'Buy now', order_path %>
+        <% else %>
+          <p>SOLD</p>
+        <% end %>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+

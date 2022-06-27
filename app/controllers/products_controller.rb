@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy place_order ]
   before_action :set_page, only: %i[ index show_by_sort]
   before_action :authorize_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
@@ -27,9 +27,6 @@ class ProductsController < ApplicationController
   def edit
     @product.category = @product.sort.category
   end
-
-
-
 
   # GET /guitar
 
@@ -79,6 +76,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def place_order
+    Order.create(
+      product_id: @product.id,
+      buyer_id: current_user.id,
+      seller_id: @product.user_id
+    )
+    @product.sold = true
+    @product.save
+    redirect_to order_success_path
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
@@ -88,7 +97,6 @@ class ProductsController < ApplicationController
     
     def set_page    
       @page = params.fetch(:page, 0).to_i
-
     end
 
     def set_form_vars

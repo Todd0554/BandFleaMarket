@@ -12,14 +12,14 @@
       <th>Price</th>
       <th>Category</th>
       <th>Sort</th>
-      
     </tr>
   </thead>
-
   <tbody>
     <% @products_per_page.each do |product| %>
       <tr>
-        <td><%= link_to image_tag(product.picture, height: "150"), product %></td>
+        <td><%= link_to image_tag(product.picture, height: "150"), product %>
+        <br>
+        <%= link_to 'Add to cart', "#" %></td>
         <td><%= link_to product.title, product %></td>
         <td><%= product.description %></td>
         <td><%= product.user.username %></td>
@@ -31,8 +31,6 @@
         <td><%= product.price %></td>
         <td><%= product.category.category %></td>
         <td><%= product.sort.sort %></td>
-        <td><%= link_to 'add to cart', "#" %></td>
-
       </tr>
     <% end %>
   </tbody>
