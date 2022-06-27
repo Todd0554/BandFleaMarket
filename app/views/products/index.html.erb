@@ -1,36 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Products</h1>
+<%= render 'shared/cart' %>
 <table>
   <thead>
     <tr>
-      <th>Picture</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>User</th>
-      <th>Sold</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Sort</th>
+      <th style="text-align:center;">Picture</th>
+      <th style="text-align:center;">Title</th>
+      <th style="text-align:center;">Description</th>
+      <th style="text-align:center;">User</th>
+      <th style="text-align:center;">Sold</th>
+      <th style="text-align:center;">Price</th>
+      <th style="text-align:center;">Category</th>
+      <th style="text-align:center;">Sort</th>
     </tr>
   </thead>
   <tbody>
     <% @products_per_page.each do |product| %>
       <tr>
-        <td><%= link_to image_tag(product.picture, height: "150"), product %>
+        <td style="text-align:center;"><%= link_to image_tag(product.picture, height: "150"), product %>
         <br>
         <%= link_to 'Add to cart', "#" %></td>
-        <td><%= link_to product.title, product %></td>
-        <td><%= product.description %></td>
-        <td><%= product.user.username %></td>
+        <td style="text-align:center;"><%= link_to product.title, product %></td>
+        <td style="text-align:center;"><%= product.description %></td>
+        <td style="text-align:center;"><%= product.user.username %></td>
         <% if product.sold == false %>
-          <td>Not yet</td>
+          <td style="text-align:center;">Not yet</td>
         <% else %>
-          <td>Sold</td>
+          <td style="text-align:center;">Sold</td>
         <% end %>
-        <td><%= product.price %></td>
-        <td><%= product.category.category %></td>
-        <td><%= product.sort.sort %></td>
+        <td style="text-align:center;"><%= product.price %></td>
+        <td style="text-align:center;"><%= product.category.category %></td>
+        <td style="text-align:center;"><%= product.sort.sort %></td>
       </tr>
     <% end %>
   </tbody>

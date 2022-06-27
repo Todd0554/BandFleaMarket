@@ -18,18 +18,27 @@
  */
  @import "bootstrap/scss/bootstrap";
 
-section{
-    margin: 0 50px;
+
+.field, th, td{
+    color: #fff;
+
 }
 
-body{
-    height: 1500px;
+ body{
+    
     background-image: url("pexels-bryan-catota-3756766.jpg");
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover; 
     color: #fff;
 }
+
+
+section{
+    margin: 0 50px;
+}
+
+
 
 ul{
     text-align: center;
@@ -39,6 +48,3 @@ li{
     display: inline-block;
 }
 
-a{
-    text-align: center;
-}

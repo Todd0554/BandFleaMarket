@@ -1,5 +1,5 @@
-<h1>this is show by sort</h1>
 
+<%= render 'shared/cart' %>
 <table>
   <thead>
     <tr>
@@ -19,7 +19,7 @@
 <% @find_products_per_page.each do |product| %>
 
       <tr>
-        <td><%= link_to image_tag(product.picture, height: "150"), product %></td>
+        <td style="text-align:center;"><%= link_to image_tag(product.picture, height: "150"), product %></td>
         <td><%= link_to product.title, product %></td>
         <td><%= product.description %></td>
         <td><%= product.user.username %></td>

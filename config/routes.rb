@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'mycart/index', as: "my_cart"
   get 'myorder/success'
   get 'myorder/myorder'
   root to: 'pages#index'
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   post 'products/:id/order', to: "products#place_order", as: "order"
   
   get 'myorder/success', to: "myorder#success", as: "order_success"
-  get 'myorder', to:"myorder#myorder", as: "my_order"
+  get 'myorder', to: "myorder#myorder", as: "my_order"
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 

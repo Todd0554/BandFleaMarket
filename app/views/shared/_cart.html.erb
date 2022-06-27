@@ -1,0 +1,9 @@
+ <% if user_signed_in? %>
+          <div id="cart" class="cart" data-totalitems="0">
+
+              <%= link_to my_cart_path, class: "nav-link" do %>
+            <%= fa_icon "shopping-cart" %>
+            
+            <% end %>
+</div>
+<% end %>
