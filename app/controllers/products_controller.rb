@@ -84,6 +84,7 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+  
     
     def set_page    
       @page = params.fetch(:page, 0).to_i
