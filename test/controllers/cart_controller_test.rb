@@ -1,8 +1,8 @@
 require "test_helper"
 
-class MycartControllerTest < ActionDispatch::IntegrationTest
+class CartControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get mycart_index_url
+    get cart_index_url
     assert_response :success
   end
 end

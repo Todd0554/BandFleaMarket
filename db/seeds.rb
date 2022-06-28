@@ -34,3 +34,4 @@ if Sort.count == 0
     end
 end
 
+Cart.destroy_all
