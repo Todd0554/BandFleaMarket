@@ -1,5 +1,7 @@
 
+<% if user_signed_in? %>
 <%= render 'shared/cart' %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -31,8 +33,6 @@
         <td><%= product.price %></td>
         <td><%= product.category.category %></td>
         <td><%= product.sort.sort %></td>
-        
-
       </tr>
     <% end %>
   </tbody>

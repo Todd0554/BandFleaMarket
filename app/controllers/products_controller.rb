@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
-
+  
   before_action :set_product, only: %i[ show edit update destroy place_order ]
   before_action :set_page, only: %i[ index show_by_sort]
   before_action :authorize_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :show_by_sort]
   before_action :set_form_vars
+  before_action :current_cart
   # GET /products or /products.json
 
   NUMBER_PRODUCTS_PER_PAGE = 5
@@ -86,6 +87,9 @@ class ProductsController < ApplicationController
     @product.save
     redirect_to order_success_path
   end
+  
+  
+  
 
 
   private
@@ -110,9 +114,25 @@ class ProductsController < ApplicationController
         redirect_to products_path
       end
     end
+    
+    def current_cart
+      if session[:cart_id] != nil
+        cart = Cart.find_by(user_id: current_user.id)
+        if cart.present?
+          @current_cart = cart
+        else
+          session[:cart_id] = nil
+        end
+      end
+  
+      if session[:cart_id] == nil
+        @current_cart = Cart.create(user_id: current_user.id)
+        session[:cart_id] = @current_cart.id
+      end
+    end
     # Only allow a list of trusted parameters through.
     def product_params
       params.require(:product).permit(:title, :description, :user_id, :sold, :price, :category_id, :picture, :sort_id)
     end
-
+    
 end
