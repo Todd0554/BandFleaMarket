@@ -39,27 +39,33 @@
       <td style="text-align:center;"><%= product.category.category %></td>
       <td style="text-align:center;"><%= product.sort.sort %></td>
       <td>
-        <% if !user_signed_in? %>
+      <% if !user_signed_in? %>
         <%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC" %>
-        <% end %>
+      <% end %>
+
+
         <% if user_signed_in? %>
-        <% already_add_to_cart = CartProduct.find_by(cart_id: @current_cart.id, product_id: product.id) %>
-        <% if already_add_to_cart == nil %>
-                <% if product.sold == true && current_user.id != product.user_id %>
-        Already Sold
-        <% elsif current_user.id == product.user_id %>
-        This is your product
-        <% else %>
-        <div class="page-wrapper">
-          <%= button_to cart_products_path(:product_id => product.id), id:"addtocart", style:"color:#32CCCC" do %>
-          <%= "Add to cart" %>
-          <span class="cart-item"></span>
+          <% already_add_to_cart = CartProduct.find_by(cart_id: @current_cart.id, product_id: product.id) %>
+          <% if already_add_to_cart == nil %>
+            <% if product.sold == true && current_user.id != product.user_id %>
+                Already Sold
+            <% elsif current_user.id == product.user_id %>
+                This is your product
+            <% elsif current_user.id != product.user_id %>
+                <div class="page-wrapper">
+                  <%= button_to cart_products_path(:product_id => product.id), id:"addtocart", style:"color:#32CCCC" do %>
+                    <%= "Add to cart" %>
+                    <span class="cart-item"></span>
+                  <% end %>
+                </div>
+            <% end %>
+          <% else  %>
+            <% if product.sold == true %>
+              Already Sold
+            <% else %>
+              Already Added To Cart
+            <% end %>
           <% end %>
-        </div>
-        <% end %>
-        <% else %>
-        Already Added To Cart
-        <% end %>
         <% end %>
       </td>
     </tr>
