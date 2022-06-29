@@ -1,3 +1,15 @@
-<%= link_to "More", products_path %>
-<br>
-<%= link_to "I have something to sell", new_product_path %>
+
+<div class="page">
+<%= link_to products_path, style:"color:#32ffff" do %>
+<%= "I'm looking for something..." %>
+<% end %>
+</div>
+
+<div class="page">
+<%= link_to new_product_path, style:"color:#32ffff" do %>
+<%= "I have something to sell..." %>
+<% end %>
+</div>
+
+
+

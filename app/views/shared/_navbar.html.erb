@@ -5,7 +5,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
-    <%= link_to root_path, class: "nav-link" do %>
+    <%= link_to root_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "headphones" %>
             <%= "BandFleaMarket" %>
             <% end %>
@@ -20,22 +20,22 @@
 
                     <% if user_signed_in? %>
             
-            <%= link_to myshop_path, class: "nav-link" do %>
+            <%= link_to myshop_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "user" %>
             <%= "MyShop" %>
             <% end %>  
 
-              <%= link_to cart_path, class: "nav-link" do %>
+              <%= link_to cart_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "shopping-cart" %>
             <%= "MyCart" %>
             <% end %>
 
-                      <%= link_to my_order_path, class: "nav-link" do %>
+                      <%= link_to my_order_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "list" %>
             <%= "MyOrder" %>
             <% end %>
  
-                     <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+                     <%= link_to destroy_user_session_path, method: :delete, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "sign-out" %>
             <%= "Sign Out" %>
             <% end %>
@@ -47,7 +47,7 @@
 
 
 
-                      <%= link_to new_user_session_path, class: "nav-link" do %>
+                      <%= link_to new_user_session_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "user" %>
             <%= "Sign In" %>
             <% end %>
@@ -56,7 +56,7 @@
            
 
                     
-            <%= link_to new_user_registration_path, class: "nav-link" do %>
+            <%= link_to new_user_registration_path, class: "nav-link", style:"color:#32CCCC" do %>
             <%= fa_icon "user" %>
             <%= "Sign Up" %>
             <% end %>
@@ -70,7 +70,7 @@
 
 <div class="dropdown">
         <div style="display:table-cell">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#32CCCC">
         Guitar&Bass
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -81,7 +81,7 @@
       </div>
     
     <div style="display:table-cell">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#32CCCC" >
           Pedals
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -102,7 +102,7 @@
       </div>
 
       <div style="display:table-cell">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#32CCCC" >
           Amplifier
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -116,9 +116,9 @@
         <%= link_to "Others", sort_path(17), class:"nav-link", style:"color:#32CCCC" %>
       </div>
     
-      
-        
-      
+          <div style="display:table-cell">
+        <%= link_to "Show All", products_path, class:"nav-link", style:"color:#32CCCC" %>
+      </div>
 </div>
       
 

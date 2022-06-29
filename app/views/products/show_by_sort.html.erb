@@ -23,7 +23,7 @@
     <tr>
       <td style="text-align:center;"><%= link_to image_tag(product.picture, height: "150"), product %>
         <br></td>
-      <td><%= link_to product.title, product %></td>
+      <td><%= link_to product.title, product, style:"color:#fff" %></td>
       <td><%= product.description %></td>
       <td><%= product.user.username %></td>
       <% if product.sold == false %>
@@ -36,19 +36,22 @@
       <td><%= product.sort.sort %></td>
 <td>
         <% if !user_signed_in? %>
-        <%= link_to "Sign in to buy", new_user_session_path %>
+        <%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC" %>
         <% end %>
         <% if user_signed_in? %>
         <% already_add_to_cart = CartProduct.find_by(cart_id: @current_cart.id, product_id: product.id) %>
         <% if already_add_to_cart == nil %>
-        <% if product.sold == true %>
+        <% if product.sold == true && current_user.id != product.user_id %>
         Already Sold
+        <% elsif current_user.id == product.user_id %>
+        This is your product
         <% else %>
         <div class="page-wrapper">
-          <%= button_to cart_products_path(:product_id => product.id), id:"addtocart" do %>
+          <%= button_to cart_products_path(:product_id => product.id), id:"addtocart", style:"color:#32CCCC" do %>
           <%= "Add to cart" %>
           <span class="cart-item"></span>
           <% end %>
+        
         </div>
         <% end %>
         <% else %>
@@ -64,8 +67,8 @@
 
 <br>
 <% if @page > 0 %>
-<%= link_to "Previous Page", products_path(page: @page - 1) %>
+<%= link_to "Previous Page", products_path(page: @page - 1), style:"color:#32CCCC" %>
 <% end %>
 <% if @page < @find_products_by_sort.length / 5  %>
-<%= link_to "Next Page", products_path(page: @page + 1) %>
+<%= link_to "Next Page", products_path(page: @page + 1), style:"color:#32CCCC" %>
 <% end %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'carts/:id', to: "carts#show"
   delete 'carts/:id', to: "carts#destroy"
   post 'cart_products', to: "cart_products#create"
-  delete 'cart_products/:id', to: "cart_products#destroy" 
+  delete 'cart_products/:id', to: "cart_products#destroy", as: "remove_product_from_cart" 
 
 
   get 'myorder/success'
@@ -21,5 +21,5 @@ Rails.application.routes.draw do
   get 'myorder', to: "myorder#myorder", as: "my_order"
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  post 'cart/place_orders', to: "carts#place_orders", as: "orders"
 end

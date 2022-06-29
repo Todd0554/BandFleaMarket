@@ -11,6 +11,10 @@ class CartProductsController < ApplicationController
   end
 
   def destroy
+    @remove_cart_product = CartProduct.find(params[:id])
+    @remove_cart_product.destroy
+    redirect_back(fallback_location: root_path)
+
   end
 
 

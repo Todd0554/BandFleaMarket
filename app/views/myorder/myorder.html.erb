@@ -6,6 +6,7 @@
       <th>Title</th>
       <th>Seller</th>
       <th>Price</th>
+      <th>Order Time</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +15,8 @@
         <td><%= image_tag(Product.find(i.product_id).picture, height: "150") %>
         <td><%= Product.find(i.product_id).title %></td>
         <td><%= User.find(i.seller_id).username %></td>
-        <td><%= Product.find(i.product_id).price %></td>  
+        <td><%= Product.find(i.product_id).price %></td>
+        <td><%= i.created_at %></td>  
       </tr>
 <% end %>
 </tbody>

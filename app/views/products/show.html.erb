@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 <%= render 'shared/cart' %>
+
+
 <%= image_tag(@product.newsizeimage)  %>
 <p>
   <strong>Title:</strong>
@@ -28,19 +30,26 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category_id %>
+  <%= @product.category.category %>
 </p>
 <p>
-  <strong>Category:</strong>
-  <%= @product.sort_id %>
+  <strong>Sort:</strong>
+  <%= @product.sort.sort %>
 </p>
-<% if @product.sold == false %>
+
+<% if user_signed_in? %>
+<% if @product.sold == false && current_user.id != @product.user_id %>
   <%= button_to 'Buy now', order_path %>
+<% elsif current_user.id == @product.user_id %>
+        You can't buy product belongs to you.
 <% else %>
   <p>SOLD</p>
 <% end %>
+<% else %>
+<%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC" %>
+<% end %>
 
-
+<br>
 
 
 <%= link_to 'Back', products_path %>
