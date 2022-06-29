@@ -1,7 +1,7 @@
-class CartsController < ApplicationController
+class CartsController < ProductsController
   before_action :current_cart
   def index
-
+    
   end
 
 

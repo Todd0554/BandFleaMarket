@@ -1,4 +1,4 @@
-class PagesController < ProductsController
+class PagesController < ApplicationController
 
   def myshop
 

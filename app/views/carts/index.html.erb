@@ -1,1 +1,37 @@
-<%= @current_cart.user_id %>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align:center;">Picture</th>
+      <th style="text-align:center;">Title</th>
+      
+      <th style="text-align:center;">User</th>
+      
+      <th style="text-align:center;">Price</th>
+      <th style="text-align:center;">Category</th>
+      <th style="text-align:center;">Sort</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+<% CartProduct.where(cart_id: @current_cart.id).each do |cp| %>
+<% added_product = Product.find_by(id: cp.product_id) %>
+    
+    <tr>
+      <td style="text-align:center;"><%= link_to image_tag(added_product.picture, height: "150"), added_product %>
+      </td>
+      <td style="text-align:center;"><%= link_to added_product.title, added_product %></td>
+      
+      <td style="text-align:center;"><%= added_product.user.username %></td>
+
+      <td style="text-align:center;"><%= added_product.price %></td>
+      <td style="text-align:center;"><%= added_product.category.category %></td>
+      <td style="text-align:center;"><%= added_product.sort.sort %></td>
+      
+    </tr>
+
+
+    
+    <% end %>
+  </tbody>
+</table>

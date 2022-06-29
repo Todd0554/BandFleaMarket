@@ -1,5 +1,5 @@
 class CartProductsController < ApplicationController
-  before_action :current_cart
+  before_action :current_cart, only: %i[ create destroy]
   
   def create
     chosen_product = Product.find(params[:product_id])
@@ -7,16 +7,14 @@ class CartProductsController < ApplicationController
     @cart_product.cart = @current_cart
     @cart_product.product = chosen_product
     @cart_product.save
-    redirect_to products_path
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
   end
 
 
-  def line_item_params
-    params.require(:cart_product).permit(:product_id, :cart_id)
-  end
+
 
   private
   def current_cart
@@ -35,7 +33,7 @@ class CartProductsController < ApplicationController
     end
   end
   # Only allow a list of trusted parameters through.
-  def product_params
-    params.require(:product).permit(:title, :description, :user_id, :sold, :price, :category_id, :picture, :sort_id)
+  def cart_product_params
+    params.require(:cart_product).permit(:product_id, :cart_id)
   end
 end
