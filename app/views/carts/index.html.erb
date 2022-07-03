@@ -1,11 +1,14 @@
+<div class="reg" style="margin:0 auto;">
+
+
 <% if @cartproducts.find_by(cart_id: @current_cart) == nil %>
-<p>Your cart is empty.</p>
-<%= link_to "Click Me and let's go shopping in BandFleaMarket", products_path, style:"color:#32ffff" %>
+<p style="font-size:1.3em;">Your cart is empty.</p>
+<%= link_to "Click Me and let's go shopping in BandFleaMarket", products_path, style:"color:#32ffff;font-size:1.5em;" %>
 
 <% else %>
 
 
-<table>
+<table style="margin:0 auto;">
   <thead>
     <tr>
       <th style="text-align:center;">Picture</th>
@@ -50,3 +53,5 @@
 <%= button_to "Pay Together", orders_path, style:"color:#32CCCC" %>
 
 <% end %>
+
+</div>

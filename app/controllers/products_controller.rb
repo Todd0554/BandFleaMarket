@@ -1,11 +1,11 @@
 class ProductsController < CartProductsController
   
   before_action :set_product, only: %i[ show edit update destroy place_order ]
-  before_action :set_page, only: %i[ index show_by_sort]
+  before_action :set_page, only: %i[ index show_by_sort show_by_category ]
   before_action :authorize_user, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show, :show_by_sort]
+  before_action :authenticate_user!, except: [:index, :show, :show_by_sort, :show_by_category ]
   before_action :set_form_vars
-  before_action :current_cart, except: %i[ index show_by_sort show  ]
+  before_action :current_cart, except: %i[ index show_by_sort show_by_category show  ]
   # GET /products or /products.json
 
   NUMBER_PRODUCTS_PER_PAGE = 5
@@ -43,8 +43,21 @@ class ProductsController < CartProductsController
     if user_signed_in?
       current_cart
     end
-    
   end
+  def show_by_category
+    @find_category = @categories.find do |c|
+      c[:id] == params[:id].to_i
+    end
+    @find_products_by_category = Product.where(category_id: @find_category.id)
+    
+    @find_products_per_page = @find_products_by_category.offset(@page * NUMBER_PRODUCTS_PER_PAGE).limit(NUMBER_PRODUCTS_PER_PAGE)
+    
+    if user_signed_in?
+      current_cart
+    end
+
+  end
+  
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)

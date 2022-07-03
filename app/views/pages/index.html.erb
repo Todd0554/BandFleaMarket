@@ -1,15 +1,91 @@
 
-<div class="page">
-<%= link_to products_path, style:"color:#32ffff" do %>
-<%= "I'm looking for something..." %>
-<% end %>
+
+<div class="div-a">
+      
+        
+            <div class="card-body">
+                <h2>Looking for something...</h2>
+                <br>
+                <p class="card-text">Are you looking for something? Clicking the button here to see more!</p>
+                <p class="card-text">As a Buyer</p>
+                <br>
+                <%= link_to "I'm looking for something...", products_path, style:"color:#32ffff;text-decoration: none;" %>
+
+            </div>
+        
+            <div class="card-body" style="margin-top:20px;">
+                <h2>Have something to sell...</h2>
+                <p class="card-text">It's the time to add a new product in your own shop!</p>
+                <p class="card-text">As a seller</p>
+                <br>
+
+                <%= link_to "I have something to sell...", new_product_path, style:"color:#32ffff;text-decoration: none;" %>
+
+            </div>
+        
+   
 </div>
 
-<div class="page">
-<%= link_to new_product_path, style:"color:#32ffff" do %>
-<%= "I have something to sell..." %>
-<% end %>
+
+
+<div class="big-div">
+    <div class="container mt-3 c1" >
+       
+            <div class="card-body">
+                <h1>Guitar & Bass</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Guitar & Bass", category_path(1), style:"color:#32ffff;text-decoration: none;" %>
+
+            </div>
+        
+    </div>
+
+    <div class="container mt-3 c2" > 
+       
+            <div class="card-body">
+                <h1>Pedals</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Pedals", category_path(2), style:"color:#32ffff;text-decoration: none;" %>
+
+            </div>
+        
+    </div>
+
+    <div class="container mt-3 c3" >   
+       
+            <div class="card-body">
+                <h1>Amplifier</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Amplifier", category_path(3), style:"color:#32ffff;text-decoration: none;" %>
+
+            </div>
+        
+    </div>
+
+    <div class="container mt-3 c4" > 
+        
+            <div class="card-body">
+                <h1>Others</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <%= link_to "Others", category_path(4), style:"color:#32ffff;text-decoration: none;" %>
+            </div>
+    </div>
 </div>
+
+
+
 
 
 

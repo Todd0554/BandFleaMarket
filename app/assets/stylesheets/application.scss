@@ -17,7 +17,9 @@
  *= require font-awesome
  */
  @import "bootstrap/scss/bootstrap";
-
+a{
+    text-decoration: none;
+}
 
 .field, th, td{
     color: #fff;
@@ -27,9 +29,11 @@
  body{
     
     background-image: url("pexels-bryan-catota-3756766.jpg");
+    
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover; 
+    
     color: #fff;
 }
 
@@ -48,6 +52,25 @@ li{
     display: inline-block;
 }
 
-h1, p{
+.reg{
+    
+    text-align: center;
+}
+
+h1, h2, p{
     color: #fff;
+}
+
+
+.big-section{
+    margin: 20px 0;
+}
+
+nav{
+    font-size: 1.1em;
+}
+
+.dropdown{
+    font-size: 1.1em;
+    text-align: center;
 }

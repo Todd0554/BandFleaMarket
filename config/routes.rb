@@ -15,11 +15,14 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :products
+  get 'show_by_category/:id', to: "products#show_by_category", as: "category"
   get 'show_by_sort/:id', to: "products#show_by_sort", as: "sort"
+
+
   post 'products/:id/order', to: "products#place_order", as: "order"
   get 'myorder/success', to: "myorder#success", as: "order_success"
   get 'myorder', to: "myorder#myorder", as: "my_order"
   
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   post 'cart/place_orders', to: "carts#place_orders", as: "orders"
 end

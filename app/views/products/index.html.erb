@@ -1,10 +1,13 @@
+<div class="reg" style="margin:0 auto;">
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
 <%= render 'shared/cart' %>
 <% end %>
 
-<table>
+
+
+<table style="margin:0 auto;">
   <thead>
     <tr>
       <th style="text-align:center;">Picture</th>
@@ -18,16 +21,13 @@
       <th></th>
     </tr>
   </thead>
+
   <tbody>
     <% @products_per_page.each do |product| %>
     <tr>
-      <td style="text-align:center;"><%= link_to image_tag(product.picture, height: "150"), product %>
+      <td style="text-align:center;text-decoration: none;"><%= link_to image_tag(product.picture, height: "150"), product %>
       </td>
-
-
-
-
-      <td style="text-align:center;"><%= link_to product.title, product, style:"color:#fff" %></td>
+      <td style="text-align:center;"><%= link_to product.title, product, style:"color:#fff;text-decoration: none;" %></td>
       <td style="text-align:center;"><%= product.description %></td>
       <td style="text-align:center;"><%= product.user.username %></td>
       <% if product.sold == false %>
@@ -40,7 +40,7 @@
       <td style="text-align:center;"><%= product.sort.sort %></td>
       <td>
       <% if !user_signed_in? %>
-        <%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC" %>
+        <%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC;text-decoration: none;" %>
       <% end %>
 
 
@@ -53,7 +53,7 @@
                 This is your product
             <% elsif current_user.id != product.user_id %>
                 <div class="page-wrapper">
-                  <%= button_to cart_products_path(:product_id => product.id), id:"addtocart", style:"color:#32CCCC" do %>
+                  <%= button_to cart_products_path(:product_id => product.id), id:"addtocart", style:"color:#32CCCC;text-decoration: none;" do %>
                     <%= "Add to cart" %>
                     <span class="cart-item"></span>
                   <% end %>
@@ -77,8 +77,11 @@
 
 <br>
 <% if @page > 0 %>
-<%= link_to "Previous Page", products_path(page: @page - 1), style:"color:#32CCCC" %>
+<%= link_to "Previous Page", products_path(page: @page - 1), style:"color:#32CCCC;text-decoration: none;" %>
 <% end %>
 <% if @page < @products.length / 5  %>
-<%= link_to "Next Page", products_path(page: @page + 1), style:"color:#32CCCC" %>
+<%= link_to "Next Page", products_path(page: @page + 1), style:"color:#32CCCC;text-decoration: none;" %>
 <% end %>
+
+</div>
+

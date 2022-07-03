@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<div class="reg" style="font-size:1.2em;">
+<p id="notice" style="font-size: 1.4em;color:#32CCCC"><%= notice %></p>
 <%= render 'shared/cart' %>
 
 
@@ -39,18 +40,21 @@
 
 <% if user_signed_in? %>
 <% if @product.sold == false && current_user.id != @product.user_id %>
-  <%= button_to 'Buy now', order_path %>
+  <%= button_to 'Buy now', order_path, style:"color:#32CCCC;" %>
 <% elsif current_user.id == @product.user_id %>
+        <p style="color:#32cccc;font-size:1.3em;">
         You can't buy product belongs to you.
+        </p> 
 <% else %>
   <p>SOLD</p>
 <% end %>
 <% else %>
-<%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC" %>
+<%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC;text-decoration: none;" %>
 <% end %>
 
 <br>
 
 
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', products_path, style:"text-decoration: none;font-size:1.4em;color:#32CCCC;" %>
 
+</div>

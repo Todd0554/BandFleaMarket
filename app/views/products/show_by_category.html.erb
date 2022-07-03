@@ -1,11 +1,7 @@
 <% if user_signed_in? %>
 <%= render 'shared/cart' %>
 <% end %>
-
-<div style="margin:0 auto;">
-
-
-<table style="margin:0 auto;">
+<table>
   <thead>
     <tr>
       <th>Picture</th>
@@ -75,9 +71,6 @@
 <% if @page > 0 %>
 <%= link_to "Previous Page", products_path(page: @page - 1), style:"color:#32CCCC;text-decoration: none;" %>
 <% end %>
-<% if @page < @find_products_by_sort.length / 5  %>
+<% if @page < @find_products_by_category.length / 5  %>
 <%= link_to "Next Page", products_path(page: @page + 1), style:"color:#32CCCC;text-decoration: none;" %>
 <% end %>
-
-</div>
-
