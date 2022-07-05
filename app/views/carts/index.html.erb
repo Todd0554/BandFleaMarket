@@ -1,13 +1,9 @@
 <div class="reg" style="margin:0 auto;">
-
-
+<%# to check is there any products the current user add to their cart %>
 <% if @cartproducts.find_by(cart_id: @current_cart) == nil %>
 <p style="font-size:1.3em;">Your cart is empty.</p>
 <%= link_to "Click Me and let's go shopping in BandFleaMarket", products_path, style:"color:#32ffff;font-size:1.5em;" %>
-
 <% else %>
-
-
 <table style="margin:0 auto;">
   <thead>
     <tr>
@@ -21,14 +17,15 @@
     </tr>
   </thead>
   <tbody>
+<%# set initial total price %>
 <% total_price = 0 %>
+<%# loop all the added products and show them in a table %>
 <% @cartproducts.each do |cp| %>
-   
+<%# if the product is already sold after the user add it to the cart, the product will not appear in the cart %>
 <% if Product.find_by(id: cp.product_id).sold == true %>
 <% cp.delete %>
 <% else %>
 <% added_product = Product.find_by(id: cp.product_id) %>
-    
     <tr>
       <td style="text-align:center;"><%= link_to image_tag(added_product.picture, height: "150"), added_product %>
       </td>
@@ -39,19 +36,17 @@
       <td style="text-align:center;"><%= added_product.sort.sort %></td>
       <td><%= link_to "Remove Product", remove_product_from_cart_path(cp), method: :delete %></td>
     </tr>
+    <%# add the price together %>
     <% total_price += added_product.price %>
   <% end %>
-  
 <% end %>
   </tbody>
 </table>
-
 <br>
 <p style="color:#32cccc;">
 <%= "Total cost: $#{total_price}" %>
 </p>
+<%# pay together and create orders for each product %>
 <%= button_to "Pay Together", orders_path, style:"color:#32CCCC" %>
-
 <% end %>
-
 </div>

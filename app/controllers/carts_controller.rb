@@ -5,9 +5,8 @@ class CartsController < ProductsController
   def index
 
   end
-
+  # place orders together in cart page
   def place_orders
-    
     @cartproducts.each do |pc|
       buy_product = Product.find_by(id: pc.product_id)
       Order.create(
@@ -21,7 +20,8 @@ class CartsController < ProductsController
     redirect_to order_success_path
   end
 
-
+  private
+  # make sure the cart is connected with the current user
   def current_cart
     if session[:cart_id] != nil
       cart = Cart.find_by(user_id: current_user.id)
@@ -31,7 +31,6 @@ class CartsController < ProductsController
         session[:cart_id] = nil
       end
     end
-
     if session[:cart_id] == nil
       @current_cart = Cart.create(user_id: current_user.id)
       session[:cart_id] = @current_cart.id

@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    
     # permit to add the username column to devise table
     before_action :configure_permitted_parameters, if: :devise_controller?
+
+
+
+    
+
 
     protected
 

@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
+# initial the category and sort of the products, each category has more than one sorts and one sort belongs to only one category
 categories = ["guitar&bass","pedal","amplifier","others"]
 
 if Category.count == 0

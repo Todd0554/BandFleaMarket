@@ -30,6 +30,7 @@
       <td style="text-align:center;"><%= link_to product.title, product, style:"color:#fff;text-decoration: none;" %></td>
       <td style="text-align:center;"><%= product.description %></td>
       <td style="text-align:center;"><%= product.user.username %></td>
+      <%# check the sold situation of the product %>
       <% if product.sold == false %>
       <td style="text-align:center;">Not yet</td>
       <% else %>
@@ -42,13 +43,14 @@
       <% if !user_signed_in? %>
         <%= link_to "Sign in to buy", new_user_session_path, style:"color:#32CCCC;text-decoration: none;" %>
       <% end %>
-
-
         <% if user_signed_in? %>
+          <%# check if the current user already add this product to their cart %>
           <% already_add_to_cart = CartProduct.find_by(cart_id: @current_cart.id, product_id: product.id) %>
           <% if already_add_to_cart == nil %>
+            <%# check whether the product is sold %>
             <% if product.sold == true && current_user.id != product.user_id %>
                 Already Sold
+            <%# check the product is belong to currents user %>
             <% elsif current_user.id == product.user_id %>
                 This is your product
             <% elsif current_user.id != product.user_id %>
