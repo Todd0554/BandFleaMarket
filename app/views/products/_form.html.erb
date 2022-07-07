@@ -18,7 +18,10 @@
 
   <div class="field" style="width:500px;margin:auto;">
     <%= form.label :description%>
-    <%= form.rich_text_area :description, style:"color:white;display:fixed;" %>
+  <div style="background-color:white">
+      <%= form.rich_text_area :description, style:"display:fixed;color:black" %>
+  </div>
+
   </div>
 
 
@@ -37,7 +40,7 @@
     <%= form.file_field :picture %>
   </div>
   
-  <div class="actions" style="color:#32CCCC">
-    <%= form.submit %>
+  <div class="actions">
+    <%= form.submit style:"color:#32CCCC;" %>
   </div>
 <% end %>
